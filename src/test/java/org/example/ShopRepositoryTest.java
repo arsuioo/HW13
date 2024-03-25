@@ -33,10 +33,8 @@ class ShopRepositoryTest {
         shop.add(fish);
         shop.add(milk);
         shop.add(fruts);
-        shop.remove(4);
-        Product[] actual = shop.findAll();
-        Product[] expected = {milk, fruts};
-        Assertions.assertArrayEquals(expected, actual);
+        assertThrows(NotFoundException.class, () -> shop.remove(4),
+                "Element with id  not found");
     }
 
     }
